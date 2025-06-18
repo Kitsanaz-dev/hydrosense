@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hydrosense/screens/alert/alert_screen.dart';
 import 'package:hydrosense/screens/dashboard/dashboard_screen.dart';
 import 'package:hydrosense/screens/history/history_screen.dart';
 import 'package:hydrosense/screens/settings/settings_screen.dart';
@@ -23,12 +22,11 @@ class _NavbarState extends State<Navbar> {
     return Scaffold(
       body: IndexedStack(
         index: currentIndex,
-        children: [
-          const DashboardScreen(),
-          const HistoryScreen(),
-          AlertScreen(),
-          const TipsScreen(),
-          const SettingsScreen(),
+        children: const [
+          DashboardScreen(),
+          HistoryScreen(),
+          TipsScreen(),
+          SettingsScreen(),
         ],
       ),
       bottomNavigationBar: Container(
@@ -68,6 +66,7 @@ class _NavbarState extends State<Navbar> {
                 decorationColor: context.color.block,
                 decorationStyle: TextDecorationStyle.solid,
                 decorationThickness: 3,
+                letterSpacing: 1,
               ),
               unselectedLabelStyle: context.typo.body2.copyWith(
                 color: context.color.onPrimary,
@@ -93,14 +92,6 @@ class _NavbarState extends State<Navbar> {
                     height: 24,
                   ),
                   label: "History",
-                ),
-                BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    'assets/icons/alert.svg',
-                    width: 24,
-                    height: 24,
-                  ),
-                  label: "Alert",
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(

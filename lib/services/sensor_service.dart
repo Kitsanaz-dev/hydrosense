@@ -6,10 +6,10 @@ class SensorService extends ChangeNotifier {
   final Dio _dio = Dio();
 
   //Hotspot Wi-Fi
-  // final String _baseUrl = 'http://172.20.10.3:1880/api/sensor';
+  final String _baseUrl = 'http://172.20.10.4:1880/api/sensor';
 
   //Home Wi-Fi
-  final String _baseUrl = 'http://192.168.100.17:1880/api/sensor';
+  // final String _baseUrl = 'http://192.168.100.15:1880/api/sensor';
 
   //K-Lab Wi-Fi
   // final String _baseUrl = 'http://192.168.1.123:1880/api/sensor';
