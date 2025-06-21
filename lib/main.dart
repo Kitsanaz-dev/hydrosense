@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hydrosense/screens/navbar.dart';
+import 'package:hydrosense/screens/opening/opening_screen.dart';
 import 'package:hydrosense/services/sensor_service.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(); // Optionally pass FirebaseOptions if needed
+void main() async { // Optionally pass FirebaseOptions if needed
   runApp(
     MultiProvider(
       providers: [
@@ -30,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Navbar(),
+      home: OpeningScreen(),
     );
   }
 }

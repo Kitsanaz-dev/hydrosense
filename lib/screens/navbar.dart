@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hydrosense/screens/dashboard/dashboard_screen.dart';
-import 'package:hydrosense/screens/history/history_screen.dart';
 import 'package:hydrosense/screens/settings/settings_screen.dart';
 import 'package:hydrosense/screens/tips/tips_screen.dart';
 import 'package:hydrosense/services/sensor_service.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -24,7 +23,6 @@ class _NavbarState extends State<Navbar> {
         index: currentIndex,
         children: const [
           DashboardScreen(),
-          HistoryScreen(),
           TipsScreen(),
           SettingsScreen(),
         ],
@@ -33,10 +31,12 @@ class _NavbarState extends State<Navbar> {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(255, 23, 122, 235).withAlpha(68), // Shadow color
+              color: const Color.fromARGB(255, 23, 122, 235)
+                  .withAlpha(68), // Shadow color
               spreadRadius: 2, // How much the shadow spreads
               blurRadius: 8, // How blurred the shadow is
-              offset: const Offset(0, -3), // Offset in x, y; negative y moves shadow upward
+              offset: const Offset(
+                  0, -3), // Offset in x, y; negative y moves shadow upward
             ),
           ],
         ),
@@ -59,19 +59,16 @@ class _NavbarState extends State<Navbar> {
               },
               selectedItemColor: context.color.block,
               unselectedItemColor: context.color.onPrimary,
-              selectedLabelStyle: context.typo.body2.copyWith(
+              selectedLabelStyle: context.typo.body1.copyWith(
                 color: context.color.block,
                 fontWeight: context.typo.bold,
-                decoration: TextDecoration.underline,
-                decorationColor: context.color.block,
-                decorationStyle: TextDecorationStyle.solid,
-                decorationThickness: 3,
-                letterSpacing: 1,
+                letterSpacing: 0.25,
               ),
               unselectedLabelStyle: context.typo.body2.copyWith(
                 color: context.color.onPrimary,
-                fontWeight: context.typo.light,
+                fontWeight: context.typo.regular,
               ),
+
               showSelectedLabels: true,
               showUnselectedLabels: true,
               type: BottomNavigationBarType.fixed,
@@ -84,14 +81,6 @@ class _NavbarState extends State<Navbar> {
                     height: 24,
                   ),
                   label: "Dashboard",
-                ),
-                BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    'assets/icons/history.svg',
-                    width: 24,
-                    height: 24,
-                  ),
-                  label: "History",
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(

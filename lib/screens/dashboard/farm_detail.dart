@@ -2,20 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hydrosense/screens/dashboard/card/condition/get_ph_color.dart';
 import 'package:hydrosense/screens/dashboard/card/condition/get_turbidity_color.dart';
+import 'package:hydrosense/screens/dashboard/card/history_card.dart';
 import 'package:hydrosense/screens/dashboard/card/sensor_card.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 
 class FarmDetail extends StatelessWidget {
+  final String name;
   final double pH;
   final double turbidity;
   final double waterLevel;
 
   const FarmDetail({
-    Key? key,
+    super.key,
+    required this.name,
     required this.pH,
     required this.turbidity,
     required this.waterLevel,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,7 @@ class FarmDetail extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: const Color.fromARGB(255, 23, 122, 235)
-                    .withAlpha(68),
+                color: const Color.fromARGB(255, 23, 122, 235).withAlpha(68),
                 spreadRadius: 2,
                 blurRadius: 8,
                 offset: const Offset(0, 3),
@@ -48,7 +50,7 @@ class FarmDetail extends StatelessWidget {
                 ),
               ),
               title: Text(
-                "Dashboard",
+                "Dashboard of $name",
                 style: context.typo.headline4.copyWith(
                   fontWeight: context.typo.extraBold,
                   color: context.color.onPrimary,
@@ -71,7 +73,7 @@ class FarmDetail extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
-                  "Mina's Farm",
+                  name,
                   style: context.typo.headline2.copyWith(
                     fontWeight: context.typo.bold,
                     color: context.color.text,
@@ -112,6 +114,28 @@ class FarmDetail extends StatelessWidget {
                 maxValue: 100.0,
                 color: context.color.primary,
                 unit: '',
+              ),
+              const Divider(
+                indent: 24,
+                endIndent: 24,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                child: Text(
+                  "$name History",
+                  style: context.typo.headline2.copyWith(
+                    fontWeight: context.typo.bold,
+                    color: context.color.text,
+                  ),
+                ),
+              ),
+              HistoryCard(
+                name: name,
+              ),
+              const Divider(
+                indent: 24,
+                endIndent: 24,
               ),
             ],
           ),

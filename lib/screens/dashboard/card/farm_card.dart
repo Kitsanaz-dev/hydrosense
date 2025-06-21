@@ -3,14 +3,16 @@ import 'package:hydrosense/screens/dashboard/farm_detail.dart';
 import 'package:hydrosense/screens/dashboard/card/condition/get_ph_color.dart';
 import 'package:hydrosense/screens/dashboard/card/condition/get_turbidity_color.dart';
 import 'package:hydrosense/screens/dashboard/card/sensor_row.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 
 class FarmCard extends StatelessWidget {
+  final String name;
   final double pH;
   final double turbidity;
   final double waterLevel;
   const FarmCard({
     super.key,
+    required this.name,
     required this.pH,
     required this.turbidity,
     required this.waterLevel,
@@ -24,6 +26,7 @@ class FarmCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => FarmDetail(
+              name: "Mina's Farm",
               pH: pH,
               turbidity: turbidity,
               waterLevel: waterLevel,
@@ -52,7 +55,7 @@ class FarmCard extends StatelessWidget {
             children: [
               // Title
               Text(
-                "Mina's Farm",
+                name,
                 style: context.typo.headline6.copyWith(
                   fontWeight: context.typo.extraBold,
                   color: context.color.text,

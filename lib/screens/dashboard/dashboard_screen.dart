@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hydrosense/screens/dashboard/card/farm_card.dart';
 import 'package:hydrosense/screens/this_app_bar.dart';
 import 'package:hydrosense/services/sensor_service.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -71,12 +71,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   : (data['waterLevel'] as num).toDouble();
 
               return FarmCard(
+                name: "Mina's Farm",
                 pH: pH,
                 turbidity: turbidity,
                 waterLevel: waterLevel,
               );
             },
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          sensorService.fetchSensorData();
+        },
+        child: Icon(
+          Icons.refresh_outlined,
+          color: context.color.primary,
+          size: 25,
         ),
       ),
     );

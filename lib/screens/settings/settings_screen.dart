@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hydrosense/screens/settings/about_us_page.dart';
+import 'package:hydrosense/screens/settings/profile_page.dart';
 import 'package:hydrosense/screens/this_app_bar.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -28,7 +30,11 @@ class SettingsScreen extends StatelessWidget {
             GestureDetector(
               child: ListTile(
                 onTap: () {
-                  print("Account Clicked");
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                    ),
+                  );
                 },
                 contentPadding: const EdgeInsets.all(0),
                 leading: Icon(
@@ -105,7 +111,12 @@ class SettingsScreen extends StatelessWidget {
             GestureDetector(
               child: ListTile(
                 onTap: () {
-                  print("About us Clicked");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AboutUsPage(),
+                    ),
+                  );
                 },
                 contentPadding: const EdgeInsets.all(0),
                 leading: Icon(

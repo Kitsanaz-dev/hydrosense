@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hydrosense/screens/this_app_bar.dart';
 
 import 'package:hydrosense/screens/tips/tips_card.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 
 class TipsScreen extends StatelessWidget {
   const TipsScreen({super.key});

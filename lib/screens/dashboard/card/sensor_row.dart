@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hydrosense/src/service/theme_service.dart';
+import 'package:hydrosense/theme/theme_service.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class SensorRow extends StatelessWidget {
